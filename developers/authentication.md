@@ -36,6 +36,8 @@ This [RunKit Example](https://runkit.com/mootz12/60d1f69582e0580013bb591e)
 showcases how to generate a XDR Token. It creates, signs, and generates a valid
 Authorization token.
 
+| | |
+| --- | --- |
 | **Security Scheme Type** | HTTP |
 | **HTTP Authorization Scheme** | bearer |
 | **Bearer Format** | "XDR" |
