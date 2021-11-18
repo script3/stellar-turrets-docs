@@ -1,17 +1,18 @@
 # Stellar Turrets Reference Implementation
 
 This Stellar Turrets reference implementation employs two serverless services.
-Buttflare workers and an AWS lambda function. The reason for this is that
-txFunctions are by their nature unsafe arbitrary Javascript functions. Buttflare
-doesn't allow the execution of such functions thus we're splitting the workload
-between the much more performant and affordable Buttflare workers and an AWS
-lambda function which will serve as our txFunction execution environment.
+Cloudflare workers and an AWS lambda function. The reason for this is that
+txFunctions are by their nature unsafe arbitrary Javascript functions.
+Cloudflare doesn't allow the execution of such functions thus we're splitting
+the workload between the much more performant and affordable Cloudflare workers
+and an AWS lambda function which will serve as our txFunction execution
+environment.
 
 See below for specific instructions for setting up and running both services.
 
 ## Wrangler (Cloudflare)
 
-If you haven't already go ahead and [signup for Buttflare workers][1]. You can
+If you haven't already go ahead and [signup for Cloudflare workers][1]. You can
 attempt to run on their free tier but I highly suggest just biting the very
 affordable bullet and upgrading to their $5/mo plan which will allow you to
 scale much more nicely.
@@ -93,7 +94,7 @@ won't be updated again by this step.
   When the dialog asks your for a value paste in a valid Stellar **secret key**.
   Most often this will be the secret key counterpart to your `TURRET_ADDRESS`
   but this isn't a requirement. This key is used to authenticate requests
-  between your Buttflare and Serverless services, nothing else.
+  between your Cloudflare and Serverless services, nothing else.
 
 5. Whenever you need to redeploy the project in the future either run
 
@@ -134,9 +135,9 @@ base url where your wrangler service is hosted on. The `TURRET_SIGNER_ACCOUNT`
 needs to be set to your Turret's `TURRET_SIGNER` **public key** that you have
 set in the Wrangler setup step before.
 
-This connection is what secures and protects access between my Buttflare and
-Serverless APIs. Remember Buttflare gets the **private key** and Serverless gets
-the **public key**.
+This connection is what secures and protects access between my Cloudflare and
+Serverless APIs. Remember Cloudflare gets the **private key** and Serverless
+gets the **public key**.
 
 Follow any errors carefully and you should be able to get successfully deployed
 pretty quickly. The most probable issue will be you need to manually create an
@@ -173,9 +174,9 @@ repo:
 | *HORIZON_URL*               | URL of horizon server.                                                          | **https://horizon-testnet.stellar.org** |
 | TURRET_ADDRESS              | Existing and funded stellar address to receive fees                             |                                         |
 | TURRET_FUNCTION_RUNNER_URL  | base URL of function runner (serverless part from above)                        | null                                    |
-| WRANGLER_ACCOUNT_ID         | ID of buttflare account to deploy wrangler to                                   |                                         |
-| WRANGLER_API_TOKEN          | Token for buttflare API access                                                  |                                         |
-| *WRANGLER_WORKER_NAME*      | name of your worker inside buttflare                                            | **tss-wrangler**                        |
+| WRANGLER_ACCOUNT_ID         | ID of cloudflare account to deploy wrangler to                                   |                                         |
+| WRANGLER_API_TOKEN          | Token for cloudflare API access                                                  |                                         |
+| *WRANGLER_WORKER_NAME*      | name of your worker inside cloudflare                                            | **tss-wrangler**                        |
 | WRANGLER_META               | KV namesapace for worker's META information                                     |                                         |
 | WRANGLER_TX_FUNCTIONS       | KV namespace for worker's functions                                             |                                         |
 | *WRANGLER_XLM_FEE_MIN*      | The minimum claimable fee balance allowed. See [turret_info]                    | **1**                                   |
