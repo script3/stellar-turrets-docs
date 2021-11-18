@@ -10,6 +10,13 @@ environment.
 
 See below for specific instructions for setting up and running both services.
 
+> The Stellar Turrets Network is currently in the very early stages of
+> deployment on the Stellar mainnet. Doing so entails setting up two turret
+> environments for the testnet and mainnet, respectively. The process is done in
+> pretty hands-on cooperation with the project maintainers at this point in
+> time. For more information, please have a look at this [pull-request] on the
+> `stellar-turrets` repository.
+
 ## Wrangler (Cloudflare)
 
 If you haven't already go ahead and [signup for Cloudflare workers][1]. You can
@@ -204,7 +211,7 @@ For this reason I strongly suggest either:
 2. Encouraging users to leave themselves as a majority signer on any controlled
    account they're attaching Turret signers to
 
-
+[pull-request]: https://github.com/tyvdh/stellar-turrets/pull/36
 [turret_info]: https://tyvdh.github.io/stellar-turrets/#operation/getTurretInfo
 [1]: https://dash.cloudflare.com/
 [2]: https://serverless.com
