@@ -20,3 +20,7 @@
 ## Extras
 
 * [Contribution Guide](extras/contribution-guide.md)
+
+***
+
+* [Api Reference](api-reference.md)
